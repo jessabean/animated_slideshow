@@ -36,6 +36,9 @@ Thumbs.db
 *.tmproject
 tmtags
 
+# Codekit Files
+codekit-config.json
+
 # Rails Stuff
 *.rbc
 *.sassc
