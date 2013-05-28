@@ -1,0 +1,45 @@
+# Always ignore
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+
+# OSX files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# Folders to ignore
+.hg
+.svn
+.CVS
+
+# Sass cache files
+.sass-cache
+
+# Sublime Files
+*.sublime-project
+*.sublime-workspace
+
+# Textmate Files
+*.tmproj
+*.tmproject
+tmtags
+
+# Rails Stuff
+*.rbc
+*.sassc
+/log/*
+/tmp/*
+tmp
+/spec/tmp/*

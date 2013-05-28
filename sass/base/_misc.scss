@@ -1,0 +1,22 @@
+// ======================
+// Misc classes
+// ======================
+
+.is-visible,
+.block {
+  display: block;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.utility {
+
+}
+
+.hide-text {
+  text-indent: -100%;
+  white-space: nowrap;
+  overflow: hidden;
+}

@@ -1,0 +1,25 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+/* TEAM */
+
+  Jessica Eldredge
+  WWW: http://www.jessica-eldredge.com
+  Twitter: @jessabean
+  Location: Washington, DC USA
+
+/* THANKS */
+  Names (& URL):
+
+/* SITE */
+  Standards: HTML5, CSS3, JavaScript
+
+  Components:
+    Modernizr : http://www.modernizr.com/
+    jQuery : http://jquery.com/
+    HTML5 Boilerplate : http://html5boilerplate.com/
+
+  Software/Tools:
+    Sublime Text : http://www.sublimetext.com/
+    SASS : http://sass-lang.com/
+    CodeKit: http://incident57.com/codekit/

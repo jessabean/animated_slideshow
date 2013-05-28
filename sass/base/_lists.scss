@@ -1,0 +1,40 @@
+// =============================
+// Lists
+// =============================
+
+// Basic list styles
+ul,
+ol {
+}
+
+// Lists with background color
+.list-box {
+}
+
+.list-box-header,
+.list-box li {
+
+}
+
+.list-box-header {
+}
+
+.list-box-content {
+}
+
+// Lists with highlight between list items
+
+// Lists with borders and padding between list items
+.slats,
+.list-slats li {
+}
+
+.slats + .slats,
+.list-slats li + li {
+}
+
+.list-slats-condensed {
+  li {
+    @extend .slats;
+  }
+}
