@@ -1,36 +1,58 @@
 .feature-list {
   position: relative;
-    width: 400px;
     height: 400px;
+    width: 400px;
 }
 
 .feature-item {
+  @include transition(all 2s ease-in-out);
   background: #eee;
-  width: 400px;
   height: 400px;
+  width: 400px;
 }
 
-
-
 .cursor {
-  width: 12px;
-  height: 12px;
+  @include transition(all 2s ease-in-out);
+  background: #000;
   border-radius: 100%;
   display: inline-block;
-  background: #000;
+    height: 12px;
+    width: 12px;
   position: absolute;
     top: 20px;
     left: 20px;
+  .ready & {
+    @include animation(cursor 2s infinite);
+  }
+}
 
-  -webkit-transition: all 2s ease-in-out; /** Chrome & Safari **/
-  -moz-transition: all 2s ease-in-out; /** Firefox **/
-  -o-transition: all 2s ease-in-out; /** Opera **/
-  transition: all 2s ease-in-out;
+// Determine the background image and position of slides
+// image x-axis y-axis transition-delay
 
-  &.ready {
-    -webkit-transform: translate(350px,0); /** Chrome & Safari **/
-    -o-transform: translate(350px,0); /** Opera **/
-    -moz-transform: translate(350px,0); /** Firefox **/
-    transform: translate(350px,0);
+// -------------------------------
+
+// Determine position of the cursor for each feature slide
+// class x-axis y-axis transition-delay
+
+// -------------------------------
+
+@-webkit-keyframes cursor {
+  0%   {
+    -webkit-transform: translate(0,0); /** Chrome & Safari **/
+    -o-transform: translate(0,0); /** Opera **/
+    -moz-transform: translate(0,0); /** Firefox **/
+    transform: translate(0,0);
+  }
+  50% {
+    -webkit-transform: translate(175px,0); /** Chrome & Safari **/
+    -o-transform: translate(175px,0); /** Opera **/
+    -moz-transform: translate(175px,0); /** Firefox **/
+    transform: translate(175px,0);
+  }
+  100% {
+    -webkit-transform: translate(175px,175px); /** Chrome & Safari **/
+    -o-transform: translate(175px,175px); /** Opera **/
+    -moz-transform: translate(175px,175px); /** Firefox **/
+    transform: translate(175px,175px);
   }
 }
