@@ -1,28 +1,26 @@
 .feature-list {
+  overflow: hidden;
   position: relative;
-    height: 400px;
-    width: 400px;
+    height: 456px;
+    width: 640px;
 }
 
 .feature-item {
   @include transition(all 2s ease-in-out);
-  background: #eee;
-  height: 400px;
-  width: 400px;
+  height: 456px;
+  overflow: hidden;
+  width: 640px;
+  position: absolute;
+    top: 0;
+    left: 0;
+  z-index: 0;
 }
 
-.cursor {
-  @include transition(all 2s ease-in-out);
-  background: #000;
-  border-radius: 100%;
-  display: inline-block;
-    height: 12px;
-    width: 12px;
-  position: absolute;
-    top: 20px;
-    left: 20px;
-  .ready & {
-    @include animation(cursor 2s infinite);
+$component: item !default;
+
+@for $i from 1 through 4 {
+  .#{$component}-#{$i} {
+    background: url(../img/slide-#{$i}.jpg) 50% 50% no-repeat;
   }
 }
 
@@ -56,3 +54,19 @@
     transform: translate(175px,175px);
   }
 }
+
+
+// For "n" images You must define:
+// a=presentation time for one image
+// b=duration for cross fading
+// Total animation-duration is of course t=(a+b)*n
+
+// animation-delay = t/n or = a+b
+
+// Percentage for keyframes:
+
+// 0%
+// a/t*100%
+// (a+b)/t*100% = 1/n*100%
+// 100%-(b/t*100%)
+// 100%

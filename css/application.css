@@ -556,34 +556,36 @@ b {
   overflow: hidden; }
 
 .feature-list {
+  overflow: hidden;
   position: relative;
-  height: 400px;
-  width: 400px; }
+  height: 456px;
+  width: 640px; }
 
 .feature-item {
   -webkit-transition: all 2s ease-in-out;
   -moz-transition: all 2s ease-in-out;
+  -ms-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
   transition: all 2s ease-in-out;
-  background: #eee;
-  height: 400px;
-  width: 400px; }
-
-.cursor {
-  -webkit-transition: all 2s ease-in-out;
-  -moz-transition: all 2s ease-in-out;
-  transition: all 2s ease-in-out;
-  background: #000;
-  border-radius: 100%;
-  display: inline-block;
-  height: 12px;
-  width: 12px;
+  height: 456px;
+  overflow: hidden;
+  width: 640px;
   position: absolute;
-  top: 20px;
-  left: 20px; }
-  .ready .cursor {
-    -webkit-animation: cursor 2s infinite;
-    -moz-animation: cursor 2s infinite;
-    animation: cursor 2s infinite; }
+  top: 0;
+  left: 0;
+  z-index: 0; }
+
+.item-1 {
+  background: url(../img/slide-1.jpg) 50% 50% no-repeat; }
+
+.item-2 {
+  background: url(../img/slide-2.jpg) 50% 50% no-repeat; }
+
+.item-3 {
+  background: url(../img/slide-3.jpg) 50% 50% no-repeat; }
+
+.item-4 {
+  background: url(../img/slide-4.jpg) 50% 50% no-repeat; }
 
 @-webkit-keyframes cursor {
   0% {
