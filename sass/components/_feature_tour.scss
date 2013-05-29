@@ -1,65 +1,14 @@
 .feature-list {
-  overflow: hidden;
+  margin: 0 auto;
   position: relative;
     height: 456px;
     width: 640px;
 }
 
-.feature-item {
-  @include transition(all 2s ease-in-out);
-  height: 456px;
-  overflow: hidden;
-  width: 640px;
-  position: absolute;
-    top: 0;
-    left: 0;
-  z-index: 0;
-}
-
-$component: item !default;
-
-@for $i from 1 through 4 {
-  .#{$component}-#{$i} {
-    background: url(../img/slide-#{$i}.jpg) 50% 50% no-repeat;
-  }
-}
-
-// Determine the background image and position of slides
-// image x-axis y-axis transition-delay
-
-// -------------------------------
-
-// Determine position of the cursor for each feature slide
-// class x-axis y-axis transition-delay
-
-// -------------------------------
-
-@-webkit-keyframes cursor {
-  0%   {
-    -webkit-transform: translate(0,0); /** Chrome & Safari **/
-    -o-transform: translate(0,0); /** Opera **/
-    -moz-transform: translate(0,0); /** Firefox **/
-    transform: translate(0,0);
-  }
-  50% {
-    -webkit-transform: translate(175px,0); /** Chrome & Safari **/
-    -o-transform: translate(175px,0); /** Opera **/
-    -moz-transform: translate(175px,0); /** Firefox **/
-    transform: translate(175px,0);
-  }
-  100% {
-    -webkit-transform: translate(175px,175px); /** Chrome & Safari **/
-    -o-transform: translate(175px,175px); /** Opera **/
-    -moz-transform: translate(175px,175px); /** Firefox **/
-    transform: translate(175px,175px);
-  }
-}
-
-
 // For "n" images You must define:
 // a=presentation time for one image
 // b=duration for cross fading
-// Total animation-duration is of course t=(a+b)*n
+// Total animation-duration: t=(a+b)*n
 
 // animation-delay = t/n or = a+b
 
@@ -70,3 +19,72 @@ $component: item !default;
 // (a+b)/t*100% = 1/n*100%
 // 100%-(b/t*100%)
 // 100%
+
+// $images:  4;
+// $slide-duration: 8;
+// $slide-transition-duration: 5;
+// $total-slideshow-duration: ($slide-duration + $slide-transition-duration) * $images;
+
+// $keyframe-1: 0;
+// $keyframe-2: ($slide-duration / $total-slideshow-duration) * 100;
+// $keyframe-3: (($slide-duration + $slide-transition-duration) / $total-slideshow-duration) * 100;
+// $keyframe-4: 100 - $keyframe-2;
+// $keyframe-5: 100;
+
+// Set up timing for slideshow fade
+
+@include keyframes(slideshow) {
+  0% {
+   opacity:1;
+  }
+  17% {
+   opacity:1;
+  }
+  25% {
+   opacity:0;
+  }
+  84% {
+   opacity:0;
+  }
+  100% {
+   opacity:1;
+  }
+}
+
+// Animation shorthand for forgetful Jess:
+// name, duration, timing function, delay, iteration count, direction
+
+.feature-item {
+  @include animation(slideshow 8s ease-in-out 0 infinite);
+  position: absolute;
+    left: 0;
+
+  &.item-1 {
+    @include animation-delay(0);
+  }
+  &.item-2 {
+    @include animation-delay(2s);
+  }
+  &.item-3 {
+    @include animation-delay(4s);
+  }
+  &.item-4 {
+    @include animation-delay(6s);
+  }
+}
+
+$i: 4; // Number of slides in list
+$index-start: $i + 1;
+
+@while $i > 0 {
+  // Set the z-index for each iteration
+  $index: $index-start - $i;
+
+  // Styles for each item in the list
+  .item-#{$i} {
+    z-index: $index;
+  }
+
+  // Iterate!
+  $i: $i - 1;
+}
