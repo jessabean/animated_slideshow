@@ -593,6 +593,22 @@ b {
   100% {
     opacity: 1; } }
 
+@-ms-keyframes slideshow {
+  0% {
+    opacity: 1; }
+
+  17% {
+    opacity: 1; }
+
+  25% {
+    opacity: 0; }
+
+  84% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
 @-o-keyframes slideshow {
   0% {
     opacity: 1; }
@@ -659,3 +675,128 @@ b {
 
 .item-1 {
   z-index: 4; }
+
+@-webkit-keyframes cursor {
+  0% {
+    left: 20px;
+    top: 20px; }
+
+  17% {
+    left: 125px;
+    top: 385px; }
+
+  25% {
+    left: 310px;
+    top: 248px; }
+
+  84% {
+    left: 525px;
+    top: 274px; }
+
+  100% {
+    left: 525px;
+    top: 336px; } }
+
+@-moz-keyframes cursor {
+  0% {
+    left: 20px;
+    top: 20px; }
+
+  17% {
+    left: 125px;
+    top: 385px; }
+
+  25% {
+    left: 310px;
+    top: 248px; }
+
+  84% {
+    left: 525px;
+    top: 274px; }
+
+  100% {
+    left: 525px;
+    top: 336px; } }
+
+@-ms-keyframes cursor {
+  0% {
+    left: 20px;
+    top: 20px; }
+
+  17% {
+    left: 125px;
+    top: 385px; }
+
+  25% {
+    left: 310px;
+    top: 248px; }
+
+  84% {
+    left: 525px;
+    top: 274px; }
+
+  100% {
+    left: 525px;
+    top: 336px; } }
+
+@-o-keyframes cursor {
+  0% {
+    left: 20px;
+    top: 20px; }
+
+  17% {
+    left: 125px;
+    top: 385px; }
+
+  25% {
+    left: 310px;
+    top: 248px; }
+
+  84% {
+    left: 525px;
+    top: 274px; }
+
+  100% {
+    left: 525px;
+    top: 336px; } }
+
+@keyframes cursor {
+  0% {
+    left: 20px;
+    top: 20px; }
+
+  17% {
+    left: 125px;
+    top: 385px; }
+
+  25% {
+    left: 310px;
+    top: 248px; }
+
+  84% {
+    left: 525px;
+    top: 274px; }
+
+  100% {
+    left: 525px;
+    top: 336px; } }
+
+.cursor {
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -ms-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+  -webkit-animation: cursor 8s ease-in-out 0 infinite;
+  -moz-animation: cursor 8s ease-in-out 0 infinite;
+  animation: cursor 8s ease-in-out 0 infinite;
+  background: #444;
+  border: 2px solid #bbbbbb;
+  border-radius: 50%;
+  display: block;
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 100; }

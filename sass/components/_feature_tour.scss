@@ -8,26 +8,26 @@
 // For "n" images You must define:
 // a=presentation time for one image
 // b=duration for cross fading
-// Total animation-duration: t=(a+b)*n
+// Total animation-duration: t=(ab)*n
 
-// animation-delay = t/n or = a+b
+// animation-delay = t/n or = ab
 
 // Percentage for keyframes:
 
 // 0%
 // a/t*100%
-// (a+b)/t*100% = 1/n*100%
+// (ab)/t*100% = 1/n*100%
 // 100%-(b/t*100%)
 // 100%
 
 // $images:  4;
 // $slide-duration: 8;
 // $slide-transition-duration: 5;
-// $total-slideshow-duration: ($slide-duration + $slide-transition-duration) * $images;
+// $total-slideshow-duration: ($slide-duration  $slide-transition-duration) * $images;
 
 // $keyframe-1: 0;
 // $keyframe-2: ($slide-duration / $total-slideshow-duration) * 100;
-// $keyframe-3: (($slide-duration + $slide-transition-duration) / $total-slideshow-duration) * 100;
+// $keyframe-3: (($slide-duration  $slide-transition-duration) / $total-slideshow-duration) * 100;
 // $keyframe-4: 100 - $keyframe-2;
 // $keyframe-5: 100;
 
@@ -73,6 +73,9 @@
   }
 }
 
+// Setting z-index for each feature item
+// ---------------------------------------
+
 $i: 4; // Number of slides in list
 $index-start: $i + 1;
 
@@ -87,4 +90,52 @@ $index-start: $i + 1;
 
   // Iterate!
   $i: $i - 1;
+}
+
+// Cursor
+// ---------------------------------------
+
+// Positions:
+// 20px 20px
+// 125px 385px
+// 310px 248px
+// 525px 274px
+// 525px 436px
+
+@include keyframes(cursor) {
+  0% {
+    left: 20px;
+    top: 20px;
+  }
+  17% {
+    left: 125px;
+    top: 385px;
+  }
+  25% {
+    left: 310px;
+    top: 248px;
+  }
+  84% {
+    left: 525px;
+    top: 274px;
+  }
+  100% {
+    left: 525px;
+    top: 336px;
+  }
+}
+
+.cursor {
+  @include transition(all 2s ease-in-out);
+  @include animation(cursor 8s ease-in-out 0 infinite);
+  background: #444;
+  border: 2px solid #bbb;
+  border-radius: 50%;
+  display: block;
+    height: 16px;
+    width: 16px;
+  position: absolute;
+    left: 10px;
+    top: 10px;
+  z-index: 100;
 }
