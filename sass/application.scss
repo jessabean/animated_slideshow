@@ -3,25 +3,12 @@
 @import "helpers";
 @import "bourbon";
 
-@import "mixins/font_size";
-@import "mixins/border_radius";
-@import "mixins/gradients";
-@import "mixins/rotate";
-@import "mixins/responsive";
-
-
 // Base Styles
 @import "base/reset";
 @import "base/structure";
 @import "base/base";
 @import "base/type";
-@import "base/buttons";
-@import "base/lists";
 @import "base/misc";
-
 
 // Components
 @import "components/feature_tour";
-
-// IE Fixes
-@import "base/ie";
