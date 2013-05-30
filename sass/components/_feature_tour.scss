@@ -1,49 +1,32 @@
-.feature-list {
-  margin: 0 auto;
-  position: relative;
-    height: 456px;
-    width: 640px;
-}
+// Slideshow Animation
+// ---------------------------------------
 
-// For "n" images You must define:
-// a=presentation time for one image
-// b=duration for cross fading
-// Total animation-duration: t=(ab)*n
+// Variables for the slideshow animation
+$images:  4;
+$slide-duration: 3;
+$slide-transition-duration: 1;
+$total-slideshow-duration: ($slide-duration + $slide-transition-duration) * $images;
 
-// animation-delay = t/n or = ab
+// Hat tip: http://css3.bradshawenterprises.com/cfimg/
+// Set up formulas for each keyframe
+$keyframe-1: percentage(0);
+$keyframe-2: floor(percentage($slide-duration / $total-slideshow-duration));
+$keyframe-3: floor(percentage(($slide-duration + $slide-transition-duration) / $total-slideshow-duration));
+$keyframe-4: floor(100 - percentage($slide-transition-duration / $total-slideshow-duration));
+$keyframe-5: percentage(100);
 
-// Percentage for keyframes:
-
-// 0%
-// a/t*100%
-// (ab)/t*100% = 1/n*100%
-// 100%-(b/t*100%)
-// 100%
-
-// $images:  4;
-// $slide-duration: 8;
-// $slide-transition-duration: 5;
-// $total-slideshow-duration: ($slide-duration  $slide-transition-duration) * $images;
-
-// $keyframe-1: 0;
-// $keyframe-2: ($slide-duration / $total-slideshow-duration) * 100;
-// $keyframe-3: (($slide-duration  $slide-transition-duration) / $total-slideshow-duration) * 100;
-// $keyframe-4: 100 - $keyframe-2;
-// $keyframe-5: 100;
-
-// Set up timing for slideshow fade
-
+// Define keyframes for slideshow animation
 @include keyframes(slideshow) {
-  0% {
+  #{$keyframe-1} {
    opacity:1;
   }
-  17% {
+  #{$keyframe-2} {
    opacity:1;
   }
-  25% {
+  #{$keyframe-3} {
    opacity:0;
   }
-  84% {
+  #{$keyframe-4} {
    opacity:0;
   }
   100% {
@@ -51,50 +34,8 @@
   }
 }
 
-// Animation shorthand for forgetful Jess:
-// name, duration, timing function, delay, iteration count, direction
-
-.feature-item {
-  @include animation(slideshow 8s ease-in-out 0 infinite);
-  position: absolute;
-    left: 0;
-
-  &.item-1 {
-    @include animation-delay(0);
-  }
-  &.item-2 {
-    @include animation-delay(2s);
-  }
-  &.item-3 {
-    @include animation-delay(4s);
-  }
-  &.item-4 {
-    @include animation-delay(6s);
-  }
-}
-
-// Setting z-index for each feature item
+// Cursor Animation
 // ---------------------------------------
-
-$i: 4; // Number of slides in list
-$index-start: $i + 1;
-
-@while $i > 0 {
-  // Set the z-index for each iteration
-  $index: $index-start - $i;
-
-  // Styles for each item in the list
-  .item-#{$i} {
-    z-index: $index;
-  }
-
-  // Iterate!
-  $i: $i - 1;
-}
-
-// Cursor
-// ---------------------------------------
-
 // Positions:
 // 20px 20px
 // 125px 385px
@@ -107,27 +48,89 @@ $index-start: $i + 1;
     left: 20px;
     top: 20px;
   }
-  17% {
+  12% {
     left: 125px;
     top: 385px;
   }
-  25% {
+  28% {
+    left: 125px;
+    top: 385px;
+  }
+  35% {
     left: 310px;
     top: 248px;
   }
-  84% {
+  50% {
+    left: 310px;
+    top: 248px;
+  }
+  56% {
     left: 525px;
     top: 274px;
   }
+  62% {
+    left: 525px;
+    top: 274px;
+  }
+  84% {
+    left: 525px;
+    top: 436px;
+  }
   100% {
     left: 525px;
-    top: 336px;
+    top: 436px;
+  }
+}
+
+// Setting z-index for each feature item
+// Can set any other iteration-based styles too
+// ---------------------------------------
+$i: 4; // Number of slides in list
+$index-start: $i + 1;
+
+@while $i > 0 {
+  $index: $index-start - $i;
+
+  .item-#{$i} {
+    z-index: $index;
+  }
+
+  $i: $i - 1;
+}
+
+// Okay, okay some actual styles
+// ---------------------------------------
+.feature-list {
+  margin: 20px auto;
+  position: relative;
+    height: 456px;
+    width: 640px;
+}
+
+// Animation shorthand for forgetful Jess:
+// name, duration, timing function, delay, iteration count, direction
+.feature-item {
+  @include animation(slideshow 12s ease-in-out 0 infinite);
+  position: absolute;
+    left: 0;
+
+  &.item-1 {
+    @include animation-delay(0);
+  }
+  &.item-2 {
+    @include animation-delay(3s);
+  }
+  &.item-3 {
+    @include animation-delay(6s);
+  }
+  &.item-4 {
+    @include animation-delay(9s);
   }
 }
 
 .cursor {
   @include transition(all 2s ease-in-out);
-  @include animation(cursor 8s ease-in-out 0 infinite);
+  @include animation(cursor 12s ease-in-out 0 infinite);
   background: #444;
   border: 2px solid #bbb;
   border-radius: 50%;
