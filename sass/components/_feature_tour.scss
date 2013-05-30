@@ -9,74 +9,101 @@ $total-slideshow-duration: ($slide-duration + $slide-transition-duration) * $ima
 
 // Hat tip: http://css3.bradshawenterprises.com/cfimg/
 // Set up formulas for each keyframe
-$keyframe-1: percentage(0);
-$keyframe-2: floor(percentage($slide-duration / $total-slideshow-duration));
-$keyframe-3: floor(percentage(($slide-duration + $slide-transition-duration) / $total-slideshow-duration));
-$keyframe-4: floor(100 - percentage($slide-transition-duration / $total-slideshow-duration));
-$keyframe-5: percentage(100);
+$ss-keyframe-1: percentage(0);
+$ss-keyframe-2: floor(percentage($slide-duration / $total-slideshow-duration));
+$ss-keyframe-3: floor(percentage(($slide-duration + $slide-transition-duration) / $total-slideshow-duration));
+$ss-keyframe-4: floor(100 - percentage($slide-transition-duration / $total-slideshow-duration));
+$ss-keyframe-5: percentage(1);
 
 // Define keyframes for slideshow animation
 @include keyframes(slideshow) {
-  #{$keyframe-1} {
+  #{$ss-keyframe-1} {
    opacity:1;
   }
-  #{$keyframe-2} {
+  #{$ss-keyframe-2} {
    opacity:1;
   }
-  #{$keyframe-3} {
+  #{$ss-keyframe-3} {
    opacity:0;
   }
-  #{$keyframe-4} {
+  #{$ss-keyframe-4} {
    opacity:0;
   }
-  100% {
+  #{$ss-keyframe-5} {
    opacity:1;
   }
 }
 
 // Cursor Animation
 // ---------------------------------------
-// Positions:
+// Positions for all the click areas:
 // 20px 20px
 // 125px 385px
 // 310px 248px
 // 525px 274px
 // 525px 436px
 
+$total-cursor-duration: 12;
+$pause-time: percentage(1/12);
+$click-time: 1;
+
+$c-keyframe-1:  percentage(0);
+$c-keyframe-2:  floor($ss-keyframe-2 - 2);
+$c-keyframe-3:  floor($c-keyframe-2 + $pause-time);
+$c-keyframe-4:  floor($ss-keyframe-3 + 12);
+$c-keyframe-5:  floor($c-keyframe-4 + $pause-time);
+$c-keyframe-6:  floor($c-keyframe-5 + 18);
+$c-keyframe-7:  floor($c-keyframe-6 + $pause-time);
+$c-keyframe-8:  floor($c-keyframe-7 + 12);
+$c-keyframe-9:  percentage((100 - 5) / 100);
+$c-keyframe-10: percentage((100 - 4) / 100);
+$c-keyframe-11: percentage(1);
+
 @include keyframes(cursor) {
   0% {
+    opacity: 1;
     left: 20px;
     top: 20px;
   }
-  12% {
+  #{$c-keyframe-2} {
     left: 125px;
     top: 385px;
   }
-  28% {
+  #{$c-keyframe-3} {
     left: 125px;
     top: 385px;
   }
-  35% {
+  #{$c-keyframe-4} {
     left: 310px;
     top: 248px;
   }
-  50% {
+  #{$c-keyframe-5} {
     left: 310px;
     top: 248px;
   }
-  56% {
+  #{$c-keyframe-6} {
     left: 525px;
     top: 274px;
   }
-  62% {
+  #{$c-keyframe-7} {
     left: 525px;
     top: 274px;
   }
-  84% {
+  #{$c-keyframe-8} {
+    opacity: 1;
     left: 525px;
     top: 436px;
   }
-  100% {
+  #{$c-keyframe-9} {
+    opacity: 0;
+    left: 525px;
+    top: 436px;
+  }
+  #{$c-keyframe-10} {
+    left: 525px;
+    top: 436px;
+  }
+  #{$c-keyframe-11} {
     left: 525px;
     top: 436px;
   }
@@ -132,13 +159,13 @@ $index-start: $i + 1;
   @include transition(all 2s ease-in-out);
   @include animation(cursor 12s ease-in-out 0 infinite);
   background: #444;
-  border: 2px solid #bbb;
+  border: 2px solid transparent;
   border-radius: 50%;
   display: block;
     height: 16px;
     width: 16px;
   position: absolute;
-    left: 10px;
-    top: 10px;
+    left: 20px;
+    top: 20px;
   z-index: 100;
 }
