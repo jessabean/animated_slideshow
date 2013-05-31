@@ -1,0 +1,80 @@
+// Slideshow Animation
+// ---------------------------------------
+
+// Variables for the slideshow animation
+$frames:                    5; // total number of slides
+$frame-duration:            1; // in seconds
+$frame-transition-duration: 1; // in seconds
+$total-frameshow-duration:  ($frame-duration + $frame-transition-duration) * $frames; // in seconds
+
+// Hat tip: http://css3.bradshawenterprises.com/cfimg/
+// Set up formulas for each keyframe
+$fr-keyframe-1: percentage(0);
+$fr-keyframe-2: floor(percentage($frame-duration / $total-frameshow-duration));
+$fr-keyframe-3: floor(percentage(($frame-duration + $frame-transition-duration) / $total-frameshow-duration));
+$fr-keyframe-4: floor(100 - percentage($frame-transition-duration / $total-frameshow-duration));
+$fr-keyframe-5: percentage(1);
+
+// Define keyframes for slideshow animation
+@include keyframes(frameshow) {
+  #{$fr-keyframe-1} {
+   opacity: 1;
+  }
+  #{$fr-keyframe-2} {
+   opacity: 1;
+  }
+  #{$fr-keyframe-3} {
+   opacity: 0;
+  }
+  #{$fr-keyframe-4} {
+   opacity: 0;
+  }
+  #{$fr-keyframe-5} {
+   opacity: 1;
+  }
+}
+
+// Setting z-index for each feature item
+// Admittedly unnecessary for this exercise but
+// allows room for other style rules in the iteration
+// ---------------------------------------
+
+$x:           5; // Number of slides in list
+$index-start: $x + 1;
+
+@while $x > 0 {
+  $index: $index-start - $x;
+
+  .frame-#{$x} {
+    background-image: url('../img/frame-#{$x}.jpg');
+    z-index: $index;
+  }
+
+  $x: $x - 1;
+}
+
+// Animation shorthand for forgetful Jess:
+// name, duration, timing function, delay, iteration count, direction
+.frame {
+  @include animation(frameshow 10s ease-in-out 0 infinite);
+  position: absolute;
+    left: 0;
+  width: 640px;
+  height: 456px;
+}
+
+.frame-1 {
+  @include animation-delay(0);
+}
+.frame-2 {
+  @include animation-delay(2s);
+}
+.frame-3 {
+  @include animation-delay(4s);
+}
+.frame-4 {
+  @include animation-delay(6s);
+}
+.frame-5 {
+  @include animation-delay(8s);
+}
