@@ -228,7 +228,7 @@ $index-start: $i + 1;
 // Animation shorthand for forgetful Jess:
 // name, duration, timing function, delay, iteration count, direction
 .slide {
-  @include animation(slideshow 12s ease-in-out 0 infinite);
+  @include animation(slideshow 12s ease-in-out 0s infinite);
   position: absolute;
     left: 0;
 }
