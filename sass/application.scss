@@ -3,12 +3,13 @@
 @import "helpers";
 @import "bourbon";
 
+@import "mixins/border_radius";
+@import "mixins/font_size";
+@import "mixins/responsive";
+
 // Base Styles
 @import "base/reset";
-@import "base/structure";
 @import "base/base";
-@import "base/type";
-@import "base/misc";
 
 // Components
-@import "components/feature_tour";
+@import "feature_tour";

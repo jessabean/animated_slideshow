@@ -21,3 +21,86 @@ aside {
   display: block;
 }
 
+#page_header,
+#page_footer {
+  margin: 40px auto;
+  width: 640px;
+}
+
+#main {
+  margin: 0 auto;
+  width: 664px;
+}
+
+#page_footer {
+  text-align: center;
+}
+
+// ======================
+// Body Type
+// ======================
+
+body {
+  font-family: $base-stack;
+  font-size: 62.5%;
+  line-height: 1.3;
+}
+
+p {
+  font-size: 14px;
+}
+
+
+// ======================
+// Headings
+// ======================
+
+h1, h2, h3, h4, h5 {
+
+}
+
+h1 {
+  border-bottom: 1px solid #bbb;
+  font-size: 32px;
+  text-align: center;
+}
+
+h2 {
+}
+
+// ======================
+// Base Link Styles
+// ======================
+
+a,
+a:visited {
+  color: $link-color;
+  text-decoration: none;
+}
+
+
+// ======================
+// Emphasis
+// ======================
+
+em {
+  font-style: italic;
+}
+
+strong,
+b {
+  font-weight: bold;
+}
+
+.meta,
+.muted {
+}
+
+
+// ======================
+// Intro/Lead Text
+// ======================
+
+.intro {
+}
+
