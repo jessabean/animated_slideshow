@@ -1,5 +1,8 @@
-@mixin respond-to($query) {
-  @media only screen and #{$query} {
-    @content;
+@mixin breakpoint($point) {
+  @if $point == medium {
+    @media (max-width: 600px) { @content; }
+  }
+  @else if $point == small {
+    @media (max-width: 320px) { @content; }
   }
 }

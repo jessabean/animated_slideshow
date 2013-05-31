@@ -223,6 +223,10 @@ $index-start: $i + 1;
   width: 640px;
   margin: 8px auto;
   position: relative;
+
+  @include breakpoint(small) {
+    display: none;
+  }
 }
 
 // Animation shorthand for forgetful Jess:
@@ -258,6 +262,10 @@ $index-start: $i + 1;
     left: 20px;
     top: 20px;
   z-index: 100;
+
+  @include breakpoint(small) {
+    display: none;
+  }
 }
 
 .cursor-point {
@@ -267,4 +275,8 @@ $index-start: $i + 1;
   display: block;
     height: 12px;
     width: 12px;
+
+  @include breakpoint(small) {
+    display: none;
+  }
 }
