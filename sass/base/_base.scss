@@ -33,6 +33,8 @@ aside {
 }
 
 #page_footer {
+  border-top: 1px solid $medium-gray;
+  padding-top: 20px;
   text-align: center;
 }
 
@@ -48,6 +50,8 @@ body {
 
 p {
   font-size: 14px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 
@@ -55,27 +59,33 @@ p {
 // Headings
 // ======================
 
-h1, h2, h3, h4, h5 {
-
-}
-
 h1 {
   border-bottom: 1px solid #bbb;
   font-size: 32px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
   text-align: center;
 }
 
 h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  text-align: center;
 }
 
 // ======================
 // Base Link Styles
 // ======================
 
-a,
-a:visited {
+a {
   color: $link-color;
   text-decoration: none;
+  &:visited {
+    color: $link-color;
+  }
+  &:hover {
+    color: $link-hover;
+  }
 }
 
 
@@ -92,15 +102,14 @@ b {
   font-weight: bold;
 }
 
-.meta,
-.muted {
-}
-
 
 // ======================
 // Intro/Lead Text
 // ======================
 
 .intro {
+  font-size: 20px;
+  line-height: 1.4;
+  text-align: left;
 }
 
