@@ -667,9 +667,9 @@ b {
   left: 0; }
 
 .slide-1 {
-  -webkit-animation-delay: 0;
-  -moz-animation-delay: 0;
-  animation-delay: 0; }
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  animation-delay: 0s; }
 
 .slide-2 {
   -webkit-animation-delay: 3s;
@@ -687,9 +687,9 @@ b {
   animation-delay: 9s; }
 
 .cursor {
-  -webkit-animation: cursor 12s ease-in-out 0 infinite;
-  -moz-animation: cursor 12s ease-in-out 0 infinite;
-  animation: cursor 12s ease-in-out 0 infinite;
+  -webkit-animation: cursor 12s ease-in-out 0s infinite;
+  -moz-animation: cursor 12s ease-in-out 0s infinite;
+  animation: cursor 12s ease-in-out 0s infinite;
   background: #444444;
   border: 2px solid transparent;
   border-radius: 50%;
@@ -812,18 +812,18 @@ b {
   z-index: 5; }
 
 .frame {
-  -webkit-animation: frameshow 10s ease-in-out 0 infinite;
-  -moz-animation: frameshow 10s ease-in-out 0 infinite;
-  animation: frameshow 10s ease-in-out 0 infinite;
+  -webkit-animation: frameshow 10s ease-in-out 0s infinite;
+  -moz-animation: frameshow 10s ease-in-out 0s infinite;
+  animation: frameshow 10s ease-in-out 0s infinite;
   position: absolute;
   left: 0;
   width: 640px;
   height: 456px; }
 
 .frame-1 {
-  -webkit-animation-delay: 0;
-  -moz-animation-delay: 0;
-  animation-delay: 0; }
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  animation-delay: 0s; }
 
 .frame-2 {
   -webkit-animation-delay: 2s;
