@@ -74,7 +74,8 @@ aside {
 body {
   font-family: "Libre Baskerville", Georgia, serif;
   font-size: 62.5%;
-  line-height: 1.3; }
+  line-height: 1.3;
+  padding: 20px; }
 
 p {
   font-size: 14px;
@@ -112,6 +113,12 @@ b {
   font-size: 20px;
   line-height: 1.4;
   text-align: left; }
+
+.fallback {
+  display: none; }
+  @media (max-width: 320px) {
+    .fallback {
+      display: block; } }
 
 @-webkit-keyframes slideshow {
   0% {
@@ -658,6 +665,9 @@ b {
   width: 640px;
   margin: 8px auto;
   position: relative; }
+  @media (max-width: 320px) {
+    .slide-list {
+      display: none; } }
 
 .slide {
   -webkit-animation: slideshow 12s ease-in-out 0s infinite;
@@ -700,6 +710,9 @@ b {
   left: 20px;
   top: 20px;
   z-index: 100; }
+  @media (max-width: 320px) {
+    .cursor {
+      display: none; } }
 
 .cursor-point {
   -webkit-animation: click 12s infinite;
@@ -710,6 +723,9 @@ b {
   display: block;
   height: 12px;
   width: 12px; }
+  @media (max-width: 320px) {
+    .cursor-point {
+      display: none; } }
 
 @-webkit-keyframes frameshow {
   0% {
