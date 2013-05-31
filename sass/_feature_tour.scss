@@ -234,7 +234,7 @@ $index-start: $i + 1;
 }
 
 .slide-1 {
-  @include animation-delay(0);
+  @include animation-delay(0s);
 }
 .slide-2 {
   @include animation-delay(3s);
@@ -247,7 +247,7 @@ $index-start: $i + 1;
 }
 
 .cursor {
-  @include animation(cursor 12s ease-in-out 0 infinite);
+  @include animation(cursor 12s ease-in-out 0s infinite);
   background: $dark-gray;
   border: 2px solid transparent;
   border-radius: 50%;

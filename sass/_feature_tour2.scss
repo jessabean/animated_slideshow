@@ -56,7 +56,7 @@ $index-start: $x + 1;
 // Animation shorthand for forgetful Jess:
 // name, duration, timing function, delay, iteration count, direction
 .frame {
-  @include animation(frameshow 10s ease-in-out 0 infinite);
+  @include animation(frameshow 10s ease-in-out 0s infinite);
   position: absolute;
     left: 0;
   width: 640px;
@@ -64,7 +64,7 @@ $index-start: $x + 1;
 }
 
 .frame-1 {
-  @include animation-delay(0);
+  @include animation-delay(0s);
 }
 .frame-2 {
   @include animation-delay(2s);
