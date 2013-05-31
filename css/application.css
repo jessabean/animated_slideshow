@@ -45,18 +45,6 @@ blockquote, q {
 a img {
   border: none; }
 
-#page_header,
-#page_footer {
-  margin: 40px auto;
-  width: 640px; }
-
-#main {
-  margin: 0 auto;
-  width: 664px; }
-
-#page_footer {
-  text-align: center; }
-
 * {
   -webkit-text-size-adjust: none;
   -webkit-box-sizing: border-box;
@@ -68,6 +56,18 @@ nav,
 header,
 aside {
   display: block; }
+
+#page_header,
+#page_footer {
+  margin: 40px auto;
+  width: 640px; }
+
+#main {
+  margin: 0 auto;
+  width: 664px; }
+
+#page_footer {
+  text-align: center; }
 
 body {
   font-family: "Libre Baskerville", Georgia, serif;
@@ -93,18 +93,6 @@ em {
 strong,
 b {
   font-weight: bold; }
-
-.is-visible,
-.block {
-  display: block; }
-
-.is-hidden {
-  display: none; }
-
-.hide-text {
-  text-indent: -100%;
-  white-space: nowrap;
-  overflow: hidden; }
 
 @-webkit-keyframes slideshow {
   0% {
@@ -190,7 +178,7 @@ b {
   0% {
     opacity: 1;
     left: 20px;
-    top: 20px; }
+    top: 50%; }
 
   16% {
     left: 125px;
@@ -227,10 +215,12 @@ b {
     top: 436px; }
 
   96% {
+    opacity: 0;
     left: 525px;
     top: 436px; }
 
   100% {
+    opacity: 0;
     left: 525px;
     top: 436px; } }
 
@@ -238,7 +228,7 @@ b {
   0% {
     opacity: 1;
     left: 20px;
-    top: 20px; }
+    top: 50%; }
 
   16% {
     left: 125px;
@@ -275,10 +265,12 @@ b {
     top: 436px; }
 
   96% {
+    opacity: 0;
     left: 525px;
     top: 436px; }
 
   100% {
+    opacity: 0;
     left: 525px;
     top: 436px; } }
 
@@ -286,7 +278,7 @@ b {
   0% {
     opacity: 1;
     left: 20px;
-    top: 20px; }
+    top: 50%; }
 
   16% {
     left: 125px;
@@ -323,10 +315,12 @@ b {
     top: 436px; }
 
   96% {
+    opacity: 0;
     left: 525px;
     top: 436px; }
 
   100% {
+    opacity: 0;
     left: 525px;
     top: 436px; } }
 
@@ -334,7 +328,7 @@ b {
   0% {
     opacity: 1;
     left: 20px;
-    top: 20px; }
+    top: 50%; }
 
   16% {
     left: 125px;
@@ -371,10 +365,12 @@ b {
     top: 436px; }
 
   96% {
+    opacity: 0;
     left: 525px;
     top: 436px; }
 
   100% {
+    opacity: 0;
     left: 525px;
     top: 436px; } }
 
@@ -382,7 +378,7 @@ b {
   0% {
     opacity: 1;
     left: 20px;
-    top: 20px; }
+    top: 50%; }
 
   16% {
     left: 125px;
@@ -419,23 +415,195 @@ b {
     top: 436px; }
 
   96% {
+    opacity: 0;
     left: 525px;
     top: 436px; }
 
   100% {
+    opacity: 0;
     left: 525px;
     top: 436px; } }
 
-.item-4 {
+@-webkit-keyframes click {
+  0% {
+    opacity: 0; }
+
+  18% {
+    opacity: 0; }
+
+  19% {
+    opacity: 1; }
+
+  20% {
+    opacity: 0; }
+
+  39% {
+    opacity: 0; }
+
+  40% {
+    opacity: 1; }
+
+  41% {
+    opacity: 0; }
+
+  65% {
+    opacity: 0; }
+
+  66% {
+    opacity: 1; }
+
+  67% {
+    opacity: 0; }
+
+  100% {
+    opacity: 0; } }
+
+@-moz-keyframes click {
+  0% {
+    opacity: 0; }
+
+  18% {
+    opacity: 0; }
+
+  19% {
+    opacity: 1; }
+
+  20% {
+    opacity: 0; }
+
+  39% {
+    opacity: 0; }
+
+  40% {
+    opacity: 1; }
+
+  41% {
+    opacity: 0; }
+
+  65% {
+    opacity: 0; }
+
+  66% {
+    opacity: 1; }
+
+  67% {
+    opacity: 0; }
+
+  100% {
+    opacity: 0; } }
+
+@-ms-keyframes click {
+  0% {
+    opacity: 0; }
+
+  18% {
+    opacity: 0; }
+
+  19% {
+    opacity: 1; }
+
+  20% {
+    opacity: 0; }
+
+  39% {
+    opacity: 0; }
+
+  40% {
+    opacity: 1; }
+
+  41% {
+    opacity: 0; }
+
+  65% {
+    opacity: 0; }
+
+  66% {
+    opacity: 1; }
+
+  67% {
+    opacity: 0; }
+
+  100% {
+    opacity: 0; } }
+
+@-o-keyframes click {
+  0% {
+    opacity: 0; }
+
+  18% {
+    opacity: 0; }
+
+  19% {
+    opacity: 1; }
+
+  20% {
+    opacity: 0; }
+
+  39% {
+    opacity: 0; }
+
+  40% {
+    opacity: 1; }
+
+  41% {
+    opacity: 0; }
+
+  65% {
+    opacity: 0; }
+
+  66% {
+    opacity: 1; }
+
+  67% {
+    opacity: 0; }
+
+  100% {
+    opacity: 0; } }
+
+@keyframes click {
+  0% {
+    opacity: 0; }
+
+  18% {
+    opacity: 0; }
+
+  19% {
+    opacity: 1; }
+
+  20% {
+    opacity: 0; }
+
+  39% {
+    opacity: 0; }
+
+  40% {
+    opacity: 1; }
+
+  41% {
+    opacity: 0; }
+
+  65% {
+    opacity: 0; }
+
+  66% {
+    opacity: 1; }
+
+  67% {
+    opacity: 0; }
+
+  100% {
+    opacity: 0; } }
+
+.slide-4 {
   z-index: 1; }
 
-.item-3 {
+.slide-3 {
   z-index: 2; }
 
-.item-2 {
+.slide-2 {
   z-index: 3; }
 
-.item-1 {
+.slide-1 {
   z-index: 4; }
 
 .browser-wrapper {
@@ -465,45 +633,44 @@ b {
 .btn-red {
   background: #d04e0f; }
 
-.feature-list {
-  margin: 8px auto;
-  position: relative;
+.slide-list {
   height: 456px;
-  width: 640px; }
+  width: 640px;
+  margin: 8px auto;
+  position: relative; }
 
-.feature-item {
+.slide {
   -webkit-animation: slideshow 12s ease-in-out 0 infinite;
   -moz-animation: slideshow 12s ease-in-out 0 infinite;
   animation: slideshow 12s ease-in-out 0 infinite;
   position: absolute;
   left: 0; }
-  .feature-item.item-1 {
-    -webkit-animation-delay: 0;
-    -moz-animation-delay: 0;
-    animation-delay: 0; }
-  .feature-item.item-2 {
-    -webkit-animation-delay: 3s;
-    -moz-animation-delay: 3s;
-    animation-delay: 3s; }
-  .feature-item.item-3 {
-    -webkit-animation-delay: 6s;
-    -moz-animation-delay: 6s;
-    animation-delay: 6s; }
-  .feature-item.item-4 {
-    -webkit-animation-delay: 9s;
-    -moz-animation-delay: 9s;
-    animation-delay: 9s; }
+
+.slide-1 {
+  -webkit-animation-delay: 0;
+  -moz-animation-delay: 0;
+  animation-delay: 0; }
+
+.slide-2 {
+  -webkit-animation-delay: 3s;
+  -moz-animation-delay: 3s;
+  animation-delay: 3s; }
+
+.slide-3 {
+  -webkit-animation-delay: 6s;
+  -moz-animation-delay: 6s;
+  animation-delay: 6s; }
+
+.slide-4 {
+  -webkit-animation-delay: 9s;
+  -moz-animation-delay: 9s;
+  animation-delay: 9s; }
 
 .cursor {
-  -webkit-transition: all 2s ease-in-out;
-  -moz-transition: all 2s ease-in-out;
-  -ms-transition: all 2s ease-in-out;
-  -o-transition: all 2s ease-in-out;
-  transition: all 2s ease-in-out;
   -webkit-animation: cursor 12s ease-in-out 0 infinite;
   -moz-animation: cursor 12s ease-in-out 0 infinite;
   animation: cursor 12s ease-in-out 0 infinite;
-  background: #444;
+  background: #444444;
   border: 2px solid transparent;
   border-radius: 50%;
   display: block;
@@ -513,3 +680,13 @@ b {
   left: 20px;
   top: 20px;
   z-index: 100; }
+
+.cursor-point {
+  -webkit-animation: click 12s infinite;
+  -moz-animation: click 12s infinite;
+  animation: click 12s infinite;
+  background: #279eb0;
+  border-radius: 50%;
+  display: block;
+  height: 12px;
+  width: 12px; }

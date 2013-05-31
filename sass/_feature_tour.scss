@@ -2,10 +2,10 @@
 // ---------------------------------------
 
 // Variables for the slideshow animation
-$images:  4;
-$slide-duration: 3;
-$slide-transition-duration: 1;
-$total-slideshow-duration: ($slide-duration + $slide-transition-duration) * $images;
+$slides:                    4; // total number of slides
+$slide-duration:            3; // in seconds
+$slide-transition-duration: 1; // in seconds
+$total-slideshow-duration:  ($slide-duration + $slide-transition-duration) * $slides; // in seconds
 
 // Hat tip: http://css3.bradshawenterprises.com/cfimg/
 // Set up formulas for each keyframe
@@ -18,19 +18,19 @@ $ss-keyframe-5: percentage(1);
 // Define keyframes for slideshow animation
 @include keyframes(slideshow) {
   #{$ss-keyframe-1} {
-   opacity:1;
+   opacity: 1;
   }
   #{$ss-keyframe-2} {
-   opacity:1;
+   opacity: 1;
   }
   #{$ss-keyframe-3} {
-   opacity:0;
+   opacity: 0;
   }
   #{$ss-keyframe-4} {
-   opacity:0;
+   opacity: 0;
   }
   #{$ss-keyframe-5} {
-   opacity:1;
+   opacity: 1;
   }
 }
 
@@ -43,10 +43,12 @@ $ss-keyframe-5: percentage(1);
 // 525px 274px
 // 525px 436px
 
-$total-cursor-duration: 12;
-$pause-time: percentage(1/12);
-$click-time: 1;
+$total-cursor-duration: 12; // in seconds
+$pause-time:            percentage(1/12);
+$click-time:            1; // in seconds
 
+// A lot of math to ensure whole number percentages
+// and allow time for cursor to pause between slides
 $c-keyframe-1:  percentage(0);
 $c-keyframe-2:  floor($ss-keyframe-2 - 2);
 $c-keyframe-3:  floor($c-keyframe-2 + $pause-time);
@@ -60,10 +62,10 @@ $c-keyframe-10: percentage((100 - 4) / 100);
 $c-keyframe-11: percentage(1);
 
 @include keyframes(cursor) {
-  0% {
+  #{$c-keyframe-1} {
     opacity: 1;
     left: 20px;
-    top: 20px;
+    top: 50%;
   }
   #{$c-keyframe-2} {
     left: 125px;
@@ -100,25 +102,80 @@ $c-keyframe-11: percentage(1);
     top: 436px;
   }
   #{$c-keyframe-10} {
+    opacity: 0;
     left: 525px;
     top: 436px;
   }
   #{$c-keyframe-11} {
+    opacity: 0;
     left: 525px;
     top: 436px;
   }
 }
 
-// Setting z-index for each feature item
-// Can set any other iteration-based styles too
+// Cursor Click Animation
 // ---------------------------------------
-$i: 4; // Number of slides in list
+// Start in the middle of the cursor's pause time
+// and pad with 1% keyframe on either side
+
+$click-1: $c-keyframe-2 + 2;
+$click-2: $click-1 + 1;
+$click-3: $click-2 + 1;
+$click-4: $c-keyframe-4 + 2;
+$click-5: $click-4 + 1;
+$click-6: $click-5 + 1;
+$click-7: $c-keyframe-6 + 2;
+$click-8: $click-7 + 1;
+$click-9: $click-8 + 1;
+
+@include keyframes(click) {
+  0% {
+    opacity: 0;
+  }
+  #{$click-1} {
+    opacity: 0;
+  }
+  #{$click-2} {
+    opacity: 1;
+  }
+  #{$click-3} {
+    opacity: 0;
+  }
+  #{$click-4} {
+    opacity: 0;
+  }
+  #{$click-5} {
+    opacity: 1;
+  }
+  #{$click-6} {
+    opacity: 0;
+  }
+  #{$click-7} {
+    opacity: 0;
+  }
+  #{$click-8} {
+    opacity: 1;
+  }
+  #{$click-9} {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+// Setting z-index for each feature item
+// Admittedly unnecessary for this exercise but
+// allows room for other style rules in the iteration
+// ---------------------------------------
+
+$i:           4; // Number of slides in list
 $index-start: $i + 1;
 
 @while $i > 0 {
   $index: $index-start - $i;
 
-  .item-#{$i} {
+  .slide-#{$i} {
     z-index: $index;
   }
 
@@ -129,7 +186,7 @@ $index-start: $i + 1;
 // ---------------------------------------
 .browser-wrapper {
   background: #fff;
-  border: 4px  solid $dark-gray;
+  border: 4px solid $dark-gray;
   border-radius: 4px;
   overflow: hidden;
 }
@@ -160,38 +217,37 @@ $index-start: $i + 1;
   background: #d04e0f;
 }
 
-.feature-list {
+.slide-list {
+  height: 456px;
+  width: 640px;
   margin: 8px auto;
   position: relative;
-    height: 456px;
-    width: 640px;
 }
 
 // Animation shorthand for forgetful Jess:
 // name, duration, timing function, delay, iteration count, direction
-.feature-item {
+.slide {
   @include animation(slideshow 12s ease-in-out 0 infinite);
   position: absolute;
     left: 0;
+}
 
-  &.item-1 {
-    @include animation-delay(0);
-  }
-  &.item-2 {
-    @include animation-delay(3s);
-  }
-  &.item-3 {
-    @include animation-delay(6s);
-  }
-  &.item-4 {
-    @include animation-delay(9s);
-  }
+.slide-1 {
+  @include animation-delay(0);
+}
+.slide-2 {
+  @include animation-delay(3s);
+}
+.slide-3 {
+  @include animation-delay(6s);
+}
+.slide-4 {
+  @include animation-delay(9s);
 }
 
 .cursor {
-  @include transition(all 2s ease-in-out);
   @include animation(cursor 12s ease-in-out 0 infinite);
-  background: #444;
+  background: $dark-gray;
   border: 2px solid transparent;
   border-radius: 50%;
   display: block;
@@ -201,4 +257,13 @@ $index-start: $i + 1;
     left: 20px;
     top: 20px;
   z-index: 100;
+}
+
+.cursor-point {
+  @include animation(click 12s infinite);
+  background: $link-color;
+  border-radius: 50%;
+  display: block;
+    height: 12px;
+    width: 12px;
 }
